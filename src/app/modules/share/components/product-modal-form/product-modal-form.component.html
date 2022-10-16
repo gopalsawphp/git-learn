@@ -1,0 +1,150 @@
+<h2 mat-dialog-title>Install Angular</h2>
+
+<mat-dialog-content style="overflow:visible">
+  <form class="example-form" [formGroup]="productForm" (ngSubmit)="saveData()" novalidate>
+
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name" placeholder="Ex. pat@example.com">
+
+      <ng-container *ngIf="productForm.controls['name'].invalid && (productForm.controls['name'].dirty || productForm.controls['name'].touched)">
+        <mat-error *ngIf="productForm.get('name')?.hasError('required')">
+          Please enter Name
+        </mat-error>
+      </ng-container>
+      
+
+    </mat-form-field>
+
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+
+        <ng-container *ngIf="productForm.controls['email'].invalid && (productForm.controls['email'].dirty || productForm.controls['email'].touched)">
+          <mat-error *ngIf="productForm.get('email')?.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+        </ng-container>
+        
+
+      </mat-form-field>
+
+
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>phone</mat-label>
+        <input type="text" matInput formControlName="phone" placeholder="Ex. pat@example.com">
+
+        <ng-container *ngIf="productForm.controls['phone'].invalid && (productForm.controls['phone'].dirty || productForm.controls['phone'].touched)">
+          <mat-error *ngIf="productForm.get('phone')?.hasError('required')">
+            Please enter a valid phone 
+          </mat-error>
+        </ng-container>
+        
+
+      </mat-form-field>
+
+           <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>description</mat-label>
+        <input type="text" matInput formControlName="description" placeholder="Ex. pat@example.com">
+
+        <ng-container *ngIf="productForm.controls['description'].invalid && (productForm.controls['description'].dirty || productForm.controls['description'].touched)">
+          <mat-error *ngIf="productForm.get('description')?.hasError('required')">
+            Please enter a valid description 
+          </mat-error>
+        </ng-container>
+        
+
+      </mat-form-field>
+
+
+
+
+      
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>price</mat-label>
+        <input type="text" matInput formControlName="price" placeholder="Ex. pat@example.com">
+
+        <ng-container *ngIf="productForm.controls['price'].invalid && (productForm.controls['price'].dirty || productForm.controls['price'].touched)">
+          <mat-error *ngIf="productForm.get('price')?.hasError('required')">
+            Please enter a valid price 
+          </mat-error>
+        </ng-container>
+        
+
+      </mat-form-field>
+
+
+
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>quantity</mat-label>
+        <input type="number" matInput formControlName="quantity" placeholder="Ex. pat@example.com">
+
+        <ng-container *ngIf="productForm.controls['quantity'].invalid && (productForm.controls['quantity'].dirty || productForm.controls['quantity'].touched)">
+          <mat-error *ngIf="productForm.get('quantity')?.hasError('required')">
+            Please enter a valid quantity 
+          </mat-error>
+        </ng-container>
+        
+
+      </mat-form-field>
+
+      <mat-radio-group formControlName="gender" class="example-full-width"
+  aria-labelledby="example-radio-group-label"
+  class="example-radio-group">
+  <mat-radio-button class="example-radio-button" matInput   *ngFor="let gn of genders" [value]="gn.name">
+    {{gn.displayName}}
+  </mat-radio-button>
+</mat-radio-group>
+
+
+
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>date</mat-label>
+  <input matInput [matDatepicker]="picker"  formControlName="date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+  <ng-container *ngIf="productForm.controls['date'].invalid && (productForm.controls['date'].dirty || productForm.controls['date'].touched)">
+    <mat-error *ngIf="productForm.get('date')?.hasError('required')">
+      Please enter a valid date 
+    </mat-error>
+  </ng-container>
+  
+
+</mat-form-field>
+
+
+
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Status</mat-label>
+  <mat-select  formControlName="status">
+    <mat-option value="0">0</mat-option>
+    <mat-option value="1">1</mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <button mat-button type="submit">Add</button>
+    </form>
+   
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button  cdkFocusInitial>Add</button>
+</mat-dialog-actions>
+
